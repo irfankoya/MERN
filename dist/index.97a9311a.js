@@ -34797,7 +34797,42 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _signin = require("./Signin");
 var _signinDefault = parcelHelpers.interopDefault(_signin);
+var _s = $RefreshSig$();
 const Signup = ()=>{
+    _s();
+    const [formData, setFormData] = (0, _react.useState)({});
+    const [error, setError] = (0, _react.useState)(false);
+    const [loading, setLoading] = (0, _react.useState)(false);
+    const handleChange = (e)=>{
+        setFormData({
+            ...formData,
+            [e.target.id]: e.target.value
+        });
+    };
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+        try {
+            setLoading(true);
+            setError(false);
+            const res = await fetch("http://localhost:3012/api/auth/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+            const data = await res.json();
+            console.log(data);
+            setLoading(false);
+            if (data.success === false) {
+                setError(true);
+                return;
+            }
+        } catch (error) {
+            setLoading(false);
+            setError(true);
+        }
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "p-3 max-w-lg mx-auto",
         children: [
@@ -34806,54 +34841,59 @@ const Signup = ()=>{
                 children: "SignUp"
             }, void 0, false, {
                 fileName: "src/pages/Signup.js",
-                lineNumber: 8,
+                lineNumber: 38,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                onSubmit: handleSubmit,
                 className: "flex flex-col gap-4",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "text",
                         placeholder: "Username",
                         id: "username",
-                        className: "bg-slate-100 p-3 rounded-lg"
+                        className: "bg-slate-100 p-3 rounded-lg",
+                        onChange: handleChange
                     }, void 0, false, {
                         fileName: "src/pages/Signup.js",
-                        lineNumber: 10,
+                        lineNumber: 40,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "email",
                         placeholder: "Email",
                         id: "email",
-                        className: "bg-slate-100 p-3 rounded-lg"
+                        className: "bg-slate-100 p-3 rounded-lg",
+                        onChange: handleChange
                     }, void 0, false, {
                         fileName: "src/pages/Signup.js",
-                        lineNumber: 16,
+                        lineNumber: 46,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "password",
                         placeholder: "password",
                         id: "password",
-                        className: "bg-slate-100 p-3 rounded-lg"
+                        className: "bg-slate-100 p-3 rounded-lg",
+                        onChange: handleChange
                     }, void 0, false, {
                         fileName: "src/pages/Signup.js",
-                        lineNumber: 22,
+                        lineNumber: 52,
                         columnNumber: 10
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        disabled: loading,
                         className: "bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80",
-                        children: "Sign Up"
+                        children: loading ? "Loading..." : "SignUp"
                     }, void 0, false, {
                         fileName: "src/pages/Signup.js",
-                        lineNumber: 28,
+                        lineNumber: 58,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/Signup.js",
-                lineNumber: 9,
+                lineNumber: 39,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34863,7 +34903,7 @@ const Signup = ()=>{
                         children: "Have an Account"
                     }, void 0, false, {
                         fileName: "src/pages/Signup.js",
-                        lineNumber: 31,
+                        lineNumber: 61,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34873,27 +34913,36 @@ const Signup = ()=>{
                             children: "Sign up"
                         }, void 0, false, {
                             fileName: "src/pages/Signup.js",
-                            lineNumber: 33,
+                            lineNumber: 63,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/pages/Signup.js",
-                        lineNumber: 32,
+                        lineNumber: 62,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/Signup.js",
-                lineNumber: 30,
+                lineNumber: 60,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                className: "text-red-700 mt-5",
+                children: error && "Something went wrong"
+            }, void 0, false, {
+                fileName: "src/pages/Signup.js",
+                lineNumber: 66,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/Signup.js",
-        lineNumber: 7,
+        lineNumber: 37,
         columnNumber: 5
     }, undefined);
 };
+_s(Signup, "lWr+Yz0MC/kdBdCTw2b5xZO89vQ=");
 _c = Signup;
 exports.default = Signup;
 var _c;
@@ -34981,9 +35030,9 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 const Header = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "bg-slate-100",
+        className: "bg-slate-300 px-10",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "flex justify-between items-center",
+            className: "flex justify-between items-center h-11",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                     to: "/",
@@ -35008,6 +35057,7 @@ const Header = ()=>{
                             children: [
                                 " ",
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    className: "font-semibold ml-4",
                                     children: "Home"
                                 }, void 0, false, {
                                     fileName: "src/components/Header.js",
@@ -35023,6 +35073,7 @@ const Header = ()=>{
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                             to: "/about",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "font-semibold ml-4",
                                 children: "About"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
@@ -35037,6 +35088,7 @@ const Header = ()=>{
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                             to: "/signin",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "font-semibold ml-4",
                                 children: "Sign In"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
@@ -35076,6 +35128,6 @@ $RefreshReg$(_c, "Header");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}]},["azPY5","1xC6H","7dhfe"], "7dhfe", "parcelRequire86e0")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["azPY5","1xC6H","7dhfe"], "7dhfe", "parcelRequire86e0")
 
 //# sourceMappingURL=index.97a9311a.js.map
