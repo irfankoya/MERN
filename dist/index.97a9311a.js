@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"apmGI":[function(require,module,exports) {
+})({"azPY5":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -34794,19 +34794,104 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _signin = require("./Signin");
+var _signinDefault = parcelHelpers.interopDefault(_signin);
 const Signup = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "SignUp"
-        }, void 0, false, {
-            fileName: "src/pages/Signup.js",
-            lineNumber: 6,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
+        className: "p-3 max-w-lg mx-auto",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "text-3xl text-center font-semibold my-7",
+                children: "SignUp"
+            }, void 0, false, {
+                fileName: "src/pages/Signup.js",
+                lineNumber: 8,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                className: "flex flex-col gap-4",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        placeholder: "Username",
+                        id: "username",
+                        className: "bg-slate-100 p-3 rounded-lg"
+                    }, void 0, false, {
+                        fileName: "src/pages/Signup.js",
+                        lineNumber: 10,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "email",
+                        placeholder: "Email",
+                        id: "email",
+                        className: "bg-slate-100 p-3 rounded-lg"
+                    }, void 0, false, {
+                        fileName: "src/pages/Signup.js",
+                        lineNumber: 16,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "password",
+                        placeholder: "password",
+                        id: "password",
+                        className: "bg-slate-100 p-3 rounded-lg"
+                    }, void 0, false, {
+                        fileName: "src/pages/Signup.js",
+                        lineNumber: 22,
+                        columnNumber: 10
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80",
+                        children: "Sign Up"
+                    }, void 0, false, {
+                        fileName: "src/pages/Signup.js",
+                        lineNumber: 28,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/pages/Signup.js",
+                lineNumber: 9,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex gap-2 mt-5",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        children: "Have an Account"
+                    }, void 0, false, {
+                        fileName: "src/pages/Signup.js",
+                        lineNumber: 31,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: "/signin",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "text-blue-500",
+                            children: "Sign up"
+                        }, void 0, false, {
+                            fileName: "src/pages/Signup.js",
+                            lineNumber: 33,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/pages/Signup.js",
+                        lineNumber: 32,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/pages/Signup.js",
+                lineNumber: 30,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/pages/Signup.js",
-        lineNumber: 5,
-        columnNumber: 9
+        lineNumber: 7,
+        columnNumber: 5
     }, undefined);
 };
 _c = Signup;
@@ -34819,7 +34904,7 @@ $RefreshReg$(_c, "Signup");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jQ2bG":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","./Signin":"bteJW"}],"jQ2bG":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2a59 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34991,6 +35076,6 @@ $RefreshReg$(_c, "Header");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}]},["apmGI","1xC6H","7dhfe"], "7dhfe", "parcelRequire86e0")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}]},["azPY5","1xC6H","7dhfe"], "7dhfe", "parcelRequire86e0")
 
 //# sourceMappingURL=index.97a9311a.js.map
