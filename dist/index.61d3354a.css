@@ -362,10 +362,6 @@ img, video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.opacity-80 {
-  opacity: .8;
-}
-
 .hover\:opacity-95:hover {
   opacity: .95;
 }
