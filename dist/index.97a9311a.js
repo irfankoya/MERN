@@ -34721,26 +34721,160 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-const Signin = ()=>{
+var _reactRouterDom = require("react-router-dom");
+var _signin = require("./Signin");
+var _signinDefault = parcelHelpers.interopDefault(_signin);
+var _s = $RefreshSig$();
+const SignIn = ()=>{
+    _s();
+    const [formData, setFormData] = (0, _react.useState)({});
+    const [error, setError] = (0, _react.useState)(false);
+    const [loading, setLoading] = (0, _react.useState)(false);
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    const handleChange = (e)=>{
+        setFormData({
+            ...formData,
+            [e.target.id]: e.target.value
+        });
+    };
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+        try {
+            setLoading(true);
+            setError(false);
+            const res = await fetch("http://localhost:3012/api/auth/signin", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+            const data = await res.json();
+            setLoading(false);
+            if (data.success === false) {
+                setError(true);
+                return;
+            }
+            navigate("/");
+        } catch (error) {
+            setLoading(false);
+            setError(true);
+        }
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: "Signin"
-    }, void 0, false, {
+        className: "p-3 max-w-lg mx-auto",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "text-3xl text-center font-semibold my-7",
+                children: "SignIn"
+            }, void 0, false, {
+                fileName: "src/pages/Signin.js",
+                lineNumber: 41,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                onSubmit: handleSubmit,
+                className: "flex flex-col gap-4",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "email",
+                        placeholder: "Email",
+                        id: "email",
+                        className: "bg-slate-100 p-3 rounded-lg",
+                        onChange: handleChange
+                    }, void 0, false, {
+                        fileName: "src/pages/Signin.js",
+                        lineNumber: 43,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "password",
+                        placeholder: "password",
+                        id: "password",
+                        className: "bg-slate-100 p-3 rounded-lg",
+                        onChange: handleChange
+                    }, void 0, false, {
+                        fileName: "src/pages/Signin.js",
+                        lineNumber: 50,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        disabled: loading,
+                        className: "bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80",
+                        children: loading ? "Loading..." : "Sign In"
+                    }, void 0, false, {
+                        fileName: "src/pages/Signin.js",
+                        lineNumber: 57,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/pages/Signin.js",
+                lineNumber: 42,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex gap-2 mt-5",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        children: "Don't have an Account"
+                    }, void 0, false, {
+                        fileName: "src/pages/Signin.js",
+                        lineNumber: 65,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: "/signup",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "text-blue-500",
+                            children: "Sign up"
+                        }, void 0, false, {
+                            fileName: "src/pages/Signin.js",
+                            lineNumber: 67,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/pages/Signin.js",
+                        lineNumber: 66,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/pages/Signin.js",
+                lineNumber: 64,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                className: "text-red-700 mt-5",
+                children: error && "Something went wrong"
+            }, void 0, false, {
+                fileName: "src/pages/Signin.js",
+                lineNumber: 70,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/pages/Signin.js",
-        lineNumber: 5,
+        lineNumber: 40,
         columnNumber: 5
     }, undefined);
 };
-_c = Signin;
-exports.default = Signin;
+_s(SignIn, "BIGz6V/lr9upzjyp1X0gB0gxh0k=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = SignIn;
+exports.default = SignIn;
 var _c;
-$RefreshReg$(_c, "Signin");
+$RefreshReg$(_c, "SignIn");
 
   $parcel$ReactRefreshHelpers$e997.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dep5E":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","./Signin":"bteJW"}],"dep5E":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1b5d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34803,6 +34937,7 @@ const Signup = ()=>{
     const [formData, setFormData] = (0, _react.useState)({});
     const [error, setError] = (0, _react.useState)(false);
     const [loading, setLoading] = (0, _react.useState)(false);
+    const navigate = (0, _reactRouterDom.useNavigate)();
     const handleChange = (e)=>{
         setFormData({
             ...formData,
@@ -34828,6 +34963,7 @@ const Signup = ()=>{
                 setError(true);
                 return;
             }
+            navigate("/signin");
         } catch (error) {
             setLoading(false);
             setError(true);
@@ -34841,7 +34977,7 @@ const Signup = ()=>{
                 children: "SignUp"
             }, void 0, false, {
                 fileName: "src/pages/Signup.js",
-                lineNumber: 38,
+                lineNumber: 40,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -34856,7 +34992,7 @@ const Signup = ()=>{
                         onChange: handleChange
                     }, void 0, false, {
                         fileName: "src/pages/Signup.js",
-                        lineNumber: 40,
+                        lineNumber: 42,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -34867,7 +35003,7 @@ const Signup = ()=>{
                         onChange: handleChange
                     }, void 0, false, {
                         fileName: "src/pages/Signup.js",
-                        lineNumber: 46,
+                        lineNumber: 48,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -34878,7 +35014,7 @@ const Signup = ()=>{
                         onChange: handleChange
                     }, void 0, false, {
                         fileName: "src/pages/Signup.js",
-                        lineNumber: 52,
+                        lineNumber: 54,
                         columnNumber: 10
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34887,13 +35023,13 @@ const Signup = ()=>{
                         children: loading ? "Loading..." : "SignUp"
                     }, void 0, false, {
                         fileName: "src/pages/Signup.js",
-                        lineNumber: 58,
+                        lineNumber: 60,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/Signup.js",
-                lineNumber: 39,
+                lineNumber: 41,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34903,28 +35039,28 @@ const Signup = ()=>{
                         children: "Have an Account"
                     }, void 0, false, {
                         fileName: "src/pages/Signup.js",
-                        lineNumber: 61,
+                        lineNumber: 63,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/signin",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                             className: "text-blue-500",
-                            children: "Sign up"
+                            children: "Sign In"
                         }, void 0, false, {
                             fileName: "src/pages/Signup.js",
-                            lineNumber: 63,
+                            lineNumber: 65,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/pages/Signup.js",
-                        lineNumber: 62,
+                        lineNumber: 64,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/Signup.js",
-                lineNumber: 60,
+                lineNumber: 62,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -34932,17 +35068,21 @@ const Signup = ()=>{
                 children: error && "Something went wrong"
             }, void 0, false, {
                 fileName: "src/pages/Signup.js",
-                lineNumber: 66,
+                lineNumber: 68,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/Signup.js",
-        lineNumber: 37,
+        lineNumber: 39,
         columnNumber: 5
     }, undefined);
 };
-_s(Signup, "lWr+Yz0MC/kdBdCTw2b5xZO89vQ=");
+_s(Signup, "bcPZ64QvGXTjHOwK47WSowmy8NI=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
 _c = Signup;
 exports.default = Signup;
 var _c;

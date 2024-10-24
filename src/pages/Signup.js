@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Signin from "./Signin";
 
 const Signup = () => {
 const [formData,setFormData]=useState({})
 const[error,setError]=useState(false)
 const [loading,setLoading]=useState(false)
+const navigate=useNavigate()
 const handleChange=(e)=>{
     setFormData({...formData, [e.target.id]:e.target.value})
 }
@@ -28,6 +29,7 @@ const handleSubmit=async(e)=>{
       setError(true)
       return
     }
+    navigate('/signin')
   } catch (error) {
     setLoading(false)
     setError(true)
@@ -60,7 +62,7 @@ const handleSubmit=async(e)=>{
       <div className="flex gap-2 mt-5">
         <p>Have an Account</p>
         <Link to="/signin">
-          <span className="text-blue-500">Sign up</span>
+          <span className="text-blue-500">Sign In</span>
         </Link>
       </div>
       <p className="text-red-700 mt-5">{error && 'Something went wrong'}</p>
